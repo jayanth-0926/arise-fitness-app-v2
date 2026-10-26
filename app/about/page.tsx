@@ -28,7 +28,7 @@ export default function AboutPage() {
         {/* SECTION 2 — DISCIPLINE BUILDS RESULTS */}
         <section className="mx-auto max-w-5xl px-6 py-24 md:px-10">
           <h2 className="font-display text-4xl md:text-5xl">
-            DISCIPLINE BUILDS <span className="text-accent-red">RESULTS.</span>
+            DISCIPLINE BUILDS <span className="text-accent-cyan">RESULTS.</span>
           </h2>
           <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
             <div>
@@ -118,7 +118,7 @@ export default function AboutPage() {
 function InfoBlock({ title, body }: { title: string; body: string }) {
   return (
     <div className="rounded-sm border border-border bg-bg-card p-6">
-      <p className="font-display text-lg text-accent-red">{title}</p>
+      <p className="font-display text-lg text-accent-cyan">{title}</p>
       <p className="mt-2 text-sm text-text-secondary">{body}</p>
     </div>
   );

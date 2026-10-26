@@ -25,7 +25,7 @@ export default async function ManualPlanPage() {
       <Navbar />
       <main className="min-h-screen bg-bg-primary px-6 pb-24 pt-32 md:px-10">
         <div className="mx-auto max-w-4xl">
-          <h1 className="font-display text-4xl">BUILD YOUR SCHEDULE</h1>
+          <h1 className="font-display text-4xl gradient-text">BUILD YOUR SCHEDULE</h1>
           <p className="mt-2 max-w-xl text-text-secondary">
             Create a manual weekly schedule. Saving this replaces your current active plan — the auto-generator
             won&apos;t override a manual schedule once it exists.

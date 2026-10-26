@@ -46,13 +46,14 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-bg-primary/90 backdrop-blur-md border-b border-border" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+          ? "bg-bg-primary/95 backdrop-blur-md border-b border-border shadow-[0_4px_24px_rgba(0,0,0,0.4)]"
+          : "bg-transparent"
+        }`}
     >
       <nav className="mx-auto max-w-7xl px-6 md:px-10 h-20 flex items-center justify-between">
-        <Link href="/" className="font-display text-2xl tracking-wide focus-ring">
-          ARISE
+        <Link href="/" className="font-display text-2xl tracking-wide focus-ring group">
+          <span className="gradient-text">ARISE</span>
         </Link>
 
         <ul className="hidden md:flex items-center gap-10">
@@ -62,15 +63,16 @@ export default function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`relative text-sm tracking-widest transition-colors focus-ring ${
-                    active ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
-                  }`}
+                  className={`relative text-sm tracking-widest transition-colors duration-200 focus-ring link-underline ${active ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+                    }`}
                 >
                   {link.label}
                   {active && (
                     <motion.span
                       layoutId="nav-active"
-                      className="absolute -bottom-2 left-0 right-0 h-[2px] bg-accent-red"
+                      className="absolute -bottom-2 left-0 right-0 h-[2px] rounded-full"
+                      style={{ background: "linear-gradient(90deg, #06B6D4, #22D3EE)" }}
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
                 </Link>
@@ -82,19 +84,42 @@ export default function Navbar() {
         <div className="hidden md:block">
           <Link
             href={ctaHref}
-            className="inline-flex items-center rounded-sm bg-accent-red px-6 py-2.5 text-sm font-semibold tracking-widest text-white transition-colors hover:bg-accent-hover focus-ring"
+            className="btn-press inline-flex items-center rounded-sm px-6 py-2.5 text-sm font-semibold tracking-widest text-bg-primary transition-all duration-200 focus-ring"
+            style={{ background: "linear-gradient(135deg, #06B6D4, #22D3EE)" }}
           >
             {ctaLabel}
           </Link>
         </div>
 
         <button
-          className="md:hidden text-text-primary focus-ring"
+          className="md:hidden text-text-primary focus-ring p-1 transition-transform duration-200 active:scale-90"
           onClick={() => setMenuOpen((o) => !o)}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
         >
-          {menuOpen ? <X size={26} /> : <Menu size={26} />}
+          <AnimatePresence mode="wait" initial={false}>
+            {menuOpen ? (
+              <motion.span
+                key="x"
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <X size={26} />
+              </motion.span>
+            ) : (
+              <motion.span
+                key="menu"
+                initial={{ rotate: 90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: -90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Menu size={26} />
+              </motion.span>
+            )}
+          </AnimatePresence>
         </button>
       </nav>
 
@@ -108,26 +133,36 @@ export default function Navbar() {
             className="md:hidden overflow-hidden bg-bg-secondary border-b border-border"
           >
             <ul className="flex flex-col px-6 py-6 gap-1">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
+              {NAV_LINKS.map((link, i) => (
+                <motion.li
+                  key={link.href}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.25, delay: i * 0.05 }}
+                >
                   <Link
                     href={link.href}
-                    className={`block py-3 text-lg tracking-wide focus-ring ${
-                      pathname === link.href ? "text-accent-red" : "text-text-primary"
-                    }`}
+                    className={`block py-3 text-lg tracking-wide focus-ring transition-colors ${pathname === link.href ? "text-accent-cyan" : "text-text-primary hover:text-accent-hover"
+                      }`}
                   >
                     {link.label}
                   </Link>
-                </li>
+                </motion.li>
               ))}
-              <li className="pt-4">
+              <motion.li
+                className="pt-4"
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.25, delay: NAV_LINKS.length * 0.05 }}
+              >
                 <Link
                   href={ctaHref}
-                  className="block text-center rounded-sm bg-accent-red px-6 py-3 text-sm font-semibold tracking-widest text-white focus-ring"
+                  className="btn-press block text-center rounded-sm px-6 py-3 text-sm font-semibold tracking-widest text-bg-primary focus-ring"
+                  style={{ background: "linear-gradient(135deg, #06B6D4, #22D3EE)" }}
                 >
                   {ctaLabel}
                 </Link>
-              </li>
+              </motion.li>
             </ul>
           </motion.div>
         )}

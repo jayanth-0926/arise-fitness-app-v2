@@ -45,6 +45,10 @@ export type WorkoutType =
   | "cardio"
   | "conditioning"
   | "mobility"
+  | "core"
+  | "arms"
+  | "calisthenics"
+  | "hybrid"
   | "rest";
 
 export interface Profile {
@@ -54,6 +58,7 @@ export interface Profile {
   gender: string | null;
   height_cm: number | null;
   weight_kg: number | null;
+  target_weight_kg: number | null;
   fitness_goal: FitnessGoal | null;
   experience_level: ExperienceLevel | null;
   training_days_per_week: number | null;
@@ -78,6 +83,7 @@ export interface Exercise {
   default_duration_seconds: number | null;
   rest_seconds: number;
   workout_type: WorkoutType;
+  video_url: string | null;
 }
 
 export interface WorkoutPlan {

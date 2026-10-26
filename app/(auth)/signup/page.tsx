@@ -105,7 +105,7 @@ export default function SignUpPage() {
 
           {success ? (
             <div className="mt-8 flex flex-col items-center gap-3 py-8 text-center">
-              <CheckCircle2 className="text-accent-red" size={40} />
+              <CheckCircle2 className="text-accent-cyan" size={40} />
               <p className="text-lg font-semibold">Account created</p>
               <p className="text-sm text-text-secondary">Taking you to your onboarding...</p>
             </div>
@@ -194,7 +194,7 @@ export default function SignUpPage() {
               </div>
 
               {formError && (
-                <p className="rounded-sm border border-accent-red/40 bg-accent-red/10 px-4 py-2 text-sm text-accent-hover">
+                <p className="rounded-sm border border-accent-cyan/40 bg-accent-cyan/10 px-4 py-2 text-sm text-accent-hover">
                   {formError}
                 </p>
               )}
@@ -202,7 +202,7 @@ export default function SignUpPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="flex w-full items-center justify-center gap-2 rounded-sm bg-accent-red py-3.5 text-sm font-semibold tracking-widest text-white transition-colors hover:bg-accent-hover disabled:opacity-60 focus-ring"
+                className="flex w-full items-center justify-center gap-2 rounded-sm bg-accent-cyan text-bg-primary py-3.5 text-sm font-semibold tracking-widest text-bg-primary transition-colors hover:bg-accent-hover disabled:opacity-60 focus-ring"
               >
                 {loading && <Loader2 size={16} className="animate-spin" />}
                 {loading ? "CREATING ACCOUNT..." : "CREATE ACCOUNT"}

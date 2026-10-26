@@ -176,7 +176,19 @@ export async function deactivateCurrentPlanAndCreateManual(
   userId: string,
   planName: string,
   trainingStyle: string,
-  days: { dayOfWeek: number; workoutType: string; label: string; exercises: { exerciseId: string; sets: number; reps: number | null; durationSeconds: number | null; restSeconds: number }[] }[]
+  days: {
+    dayOfWeek: number;
+    workoutType: string;
+    label: string;
+    exercises: {
+      exerciseId: string;
+      sets: number;
+      reps: number | null;
+      durationSeconds: number | null;
+      restSeconds: number;
+      customLabel?: string;
+    }[];
+  }[]
 ) {
   const supabase = createClient();
 
@@ -215,3 +227,4 @@ export async function deactivateCurrentPlanAndCreateManual(
 
   return newPlan.id;
 }
+

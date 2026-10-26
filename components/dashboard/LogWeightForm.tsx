@@ -56,19 +56,20 @@ export default function LogWeightForm({ userId }: { userId: string }) {
             setSaved(false);
           }}
           placeholder="kg"
-          className="w-28 rounded-sm border border-border bg-bg-secondary px-4 py-3 text-sm focus-ring"
+          className="w-28 rounded-sm border border-border bg-bg-secondary px-4 py-3 text-sm focus-ring transition-colors duration-200 focus:border-accent-cyan/50"
         />
         <button
           type="submit"
           disabled={pending}
-          className="inline-flex items-center gap-2 rounded-sm bg-accent-red px-5 py-3 text-sm font-semibold tracking-widest text-white transition-colors hover:bg-accent-hover disabled:opacity-60 focus-ring"
+          className="btn-press inline-flex items-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold tracking-widest text-bg-primary transition-all hover:shadow-glow-sm disabled:opacity-60 focus-ring"
+          style={{ background: "linear-gradient(135deg, #06B6D4, #22D3EE)" }}
         >
           {pending ? <Loader2 size={16} className="animate-spin" /> : <Plus size={16} />}
           LOG
         </button>
       </div>
-      {error && <p className="mt-3 text-sm text-accent-hover">{error}</p>}
-      {saved && <p className="mt-3 text-sm text-accent-red">Weight logged.</p>}
+      {error && <p className="mt-3 text-sm text-error">{error}</p>}
+      {saved && <p className="mt-3 text-sm text-accent-cyan">Weight logged successfully.</p>}
     </form>
   );
 }

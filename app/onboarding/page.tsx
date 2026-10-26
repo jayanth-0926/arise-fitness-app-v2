@@ -28,7 +28,7 @@ export default function OnboardingPage() {
   if (checking || !userId) {
     return (
       <main className="flex min-h-screen items-center justify-center bg-bg-primary">
-        <Loader2 className="animate-spin text-accent-red" size={28} />
+        <Loader2 className="animate-spin text-accent-cyan" size={28} />
       </main>
     );
   }

@@ -7,6 +7,7 @@
   --font-inter: "Inter", sans-serif;
 }
 
+/* ── Reduced motion ─────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -21,34 +22,99 @@ html {
 }
 
 body {
-  background-color: #050505;
-  color: #F5F5F5;
+  background-color: #050B14;
+  color: #F8FAFC;
 }
 
+/* ── Text selection ─────────────────────────────────── */
 ::selection {
-  background-color: #E3261A;
-  color: #FFFFFF;
+  background-color: #06B6D4;
+  color: #050B14;
 }
 
-/* Custom scrollbar to match the dark theme */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #0D0D0D;
-}
-::-webkit-scrollbar-thumb {
-  background: #292929;
-  border-radius: 6px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #E3261A;
-}
+/* ── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar        { width: 8px; }
+::-webkit-scrollbar-track  { background: #0A1424; }
+::-webkit-scrollbar-thumb  { background: #1E334D; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #06B6D4; }
 
-.focus-ring {
-  outline: none;
-}
+/* ── Focus ring ─────────────────────────────────────── */
+.focus-ring { outline: none; }
 .focus-ring:focus-visible {
-  outline: 2px solid #E3261A;
+  outline: 2px solid #06B6D4;
   outline-offset: 2px;
+}
+
+/* ── Card hover lift (shared utility) ──────────────── */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease,
+              border-color 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-3px) scale(1.012);
+  box-shadow: 0 8px 32px rgba(6, 182, 212, 0.12);
+}
+
+/* ── Button press ───────────────────────────────────── */
+.btn-press {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+/* ── Cyan glow border ───────────────────────────────── */
+.glow-border {
+  border-color: #06B6D4;
+  box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.3), 0 0 16px rgba(6, 182, 212, 0.1);
+}
+
+/* ── Shimmer skeleton ───────────────────────────────── */
+.shimmer-bg {
+  background: linear-gradient(
+    90deg,
+    #101D31 25%,
+    #1E334D 50%,
+    #101D31 75%
+  );
+  background-size: 200% auto;
+  animation: shimmer 1.8s linear infinite;
+}
+
+/* ── Animated underline link ────────────────────────── */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #06B6D4;
+  transition: width 0.3s ease;
+}
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ── Gradient text ──────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #06B6D4 0%, #22D3EE 50%, #67E8F9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Progress bar animated fill ─────────────────────── */
+.progress-fill {
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  background: linear-gradient(90deg, #06B6D4, #22D3EE);
+}
+
+/* ── Stat card number glow ──────────────────────────── */
+.stat-glow {
+  text-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
 }

@@ -13,7 +13,9 @@ export default function MotivationSection() {
         fill
         className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-bg-primary/70" />
+      <div className="absolute inset-0 bg-bg-primary/80" />
+      {/* Cyan glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-accent-cyan/5 via-transparent to-transparent pointer-events-none" />
 
       <div className="relative z-10 mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-6 text-center">
         <motion.h2
@@ -25,7 +27,7 @@ export default function MotivationSection() {
         >
           YOUR STRONGEST VERSION
           <br />
-          <span className="text-accent-red">STARTS HERE.</span>
+          <span className="gradient-text">STARTS HERE.</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -45,7 +47,8 @@ export default function MotivationSection() {
         >
           <Link
             href="/signup"
-            className="mt-8 inline-flex items-center rounded-sm bg-accent-red px-8 py-4 text-sm font-semibold tracking-widest text-white transition-colors hover:bg-accent-hover focus-ring"
+            className="btn-press mt-8 inline-flex items-center rounded-sm px-8 py-4 text-sm font-semibold tracking-widest text-bg-primary transition-all focus-ring hover:shadow-glow-cyan"
+            style={{ background: "linear-gradient(135deg, #06B6D4, #22D3EE)" }}
           >
             JOIN NOW
           </Link>

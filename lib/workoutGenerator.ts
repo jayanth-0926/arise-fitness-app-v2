@@ -40,6 +40,10 @@ const WORKOUT_TYPE_LABEL: Record<WorkoutType, string> = {
   cardio: "Cardio",
   conditioning: "Conditioning",
   mobility: "Mobility & Recovery",
+  core: "Core",
+  arms: "Arms",
+  calisthenics: "Calisthenics",
+  hybrid: "Hybrid",
   rest: "Rest",
 };
 
@@ -150,6 +154,10 @@ const MUSCLE_GROUPS_BY_TYPE: Record<WorkoutType, string[]> = {
   cardio: ["cardio"],
   conditioning: ["cardio", "full_body", "core"],
   mobility: ["mobility", "core"],
+  core: ["core"],
+  arms: ["biceps", "triceps"],
+  calisthenics: ["chest", "back", "shoulders", "core", "legs", "triceps", "biceps"],
+  hybrid: ["full_body", "cardio", "core"],
   rest: [],
 };
 

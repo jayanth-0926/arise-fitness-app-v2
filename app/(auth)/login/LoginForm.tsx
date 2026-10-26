@@ -144,7 +144,7 @@ export default function LoginForm() {
             </div>
 
             {error && (
-              <p className="rounded-sm border border-accent-red/40 bg-accent-red/10 px-4 py-2 text-sm text-accent-hover">
+              <p className="rounded-sm border border-accent-cyan/40 bg-accent-cyan/10 px-4 py-2 text-sm text-accent-hover">
                 {error}
               </p>
             )}
@@ -152,7 +152,7 @@ export default function LoginForm() {
             <button
               type="submit"
               disabled={loading}
-              className="flex w-full items-center justify-center gap-2 rounded-sm bg-accent-red py-3.5 text-sm font-semibold tracking-widest text-white transition-colors hover:bg-accent-hover disabled:opacity-60 focus-ring"
+              className="flex w-full items-center justify-center gap-2 rounded-sm bg-accent-cyan text-bg-primary py-3.5 text-sm font-semibold tracking-widest text-bg-primary transition-colors hover:bg-accent-hover disabled:opacity-60 focus-ring"
             >
               {loading && <Loader2 size={16} className="animate-spin" />}
               {loading ? "LOGGING IN..." : "LOG IN"}

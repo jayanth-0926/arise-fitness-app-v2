@@ -53,7 +53,7 @@ function PillButton({
       onClick={onClick}
       className={`rounded-sm border px-4 py-2.5 text-sm transition-colors focus-ring ${
         active
-          ? "border-accent-red bg-accent-red/10 text-text-primary"
+          ? "border-accent-red bg-accent-cyan/10 text-text-primary"
           : "border-border text-text-secondary hover:border-text-secondary"
       }`}
     >
@@ -276,16 +276,16 @@ export default function ProfileForm({
       </div>
 
       {error && (
-        <p className="rounded-sm border border-accent-red/40 bg-accent-red/10 px-4 py-2 text-sm text-accent-hover">
+        <p className="rounded-sm border border-accent-cyan/40 bg-accent-cyan/10 px-4 py-2 text-sm text-accent-hover">
           {error}
         </p>
       )}
-      {success && <p className="text-sm text-accent-red">Saved.</p>}
+      {success && <p className="text-sm text-accent-cyan">Saved.</p>}
 
       <button
         type="submit"
         disabled={loading}
-        className="flex w-full items-center justify-center gap-2 rounded-sm bg-accent-red py-4 text-sm font-semibold tracking-widest text-white transition-colors hover:bg-accent-hover disabled:opacity-60 focus-ring sm:w-auto sm:px-10"
+        className="flex w-full items-center justify-center gap-2 rounded-sm bg-accent-cyan text-bg-primary py-4 text-sm font-semibold tracking-widest text-bg-primary transition-colors hover:bg-accent-hover disabled:opacity-60 focus-ring sm:w-auto sm:px-10"
       >
         {loading && <Loader2 size={16} className="animate-spin" />}
         {loading ? "SAVING..." : submitLabel}

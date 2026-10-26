@@ -23,7 +23,7 @@ export default function ContactPage() {
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {CONTACT_ITEMS.map((item) => (
               <div key={item.label} className="rounded-sm border border-border bg-bg-card p-6">
-                <item.icon className="text-accent-red" size={22} />
+                <item.icon className="text-accent-cyan" size={22} />
                 <p className="mt-4 text-xs tracking-widest text-text-secondary">{item.label}</p>
                 <p className="mt-1 font-display text-xl">{item.value}</p>
               </div>
